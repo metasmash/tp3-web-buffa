@@ -1,9 +1,10 @@
 import React from 'react'
-import { TicTacToe } from './Components'
+import { GithubButton, TicTacToe } from './Components'
 
 function App() {
     return (
         <div className="App">
+            <GithubButton />
             <TicTacToe />
         </div>
     )
