@@ -15,14 +15,16 @@ const TicTacToe = () => {
 
     const audio = new Audio(PhubSound)
 
+    audio.volume = 0.4
+
     const callback = (symbol) => {
         setPlayerTurn(symbol === 'X' ? 2 : 1)
     }
 
-    const handleClick = () => {
+    const handleClick = async () => {
         setToggleResetGame(!toggleResetGame)
         setPlayerTurn(1)
-        audio.play().then((r) => r)
+        await audio.play()
     }
 
     return (
