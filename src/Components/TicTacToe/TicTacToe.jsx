@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { initialState } from './constants'
 import { Button } from '../../Components'
 import { Button as MuiButton } from '@material-ui/core'
-import { rootTicTacToe, resetGameButton, titleDescription } from './css'
+import {
+    rootTicTacToe,
+    resetGameButton,
+    titleDescription,
+} from './TicTacToe.css'
 import PhubSound from '../../SoundFiles/pornhub-community-intro.mp3'
 
 const TicTacToe = () => {
@@ -32,7 +36,7 @@ const TicTacToe = () => {
             </MuiButton>
             <div style={titleDescription}>
                 <h1 style={{ margin: 'auto' }}>Tic Tac Toe</h1>
-                <h2>Player {playerTurn}, play omg!!!</h2>
+                <h2>Player turn: {playerTurn}</h2>
             </div>
             {initialState.map((x, key) => (
                 <Button

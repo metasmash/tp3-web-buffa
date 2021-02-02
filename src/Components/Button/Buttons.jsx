@@ -3,7 +3,7 @@ import { Button as MuiButton } from '@material-ui/core'
 
 // j'importe mes objets javascript depuis CSS pour appliquer du style à mes composants.
 
-import { buttonStyle, bigTextSize } from './css'
+import { buttonStyle, bigTextSize } from './Button.css'
 const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
     const [symbol, setSymbol] = useState('')
 
@@ -11,7 +11,7 @@ const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
         if (symbol === '') {
             setSymbol(playerTurn === 1 ? 'X' : 'O')
         } else {
-            alert('Already played. Choose another button stupid shit!')
+            alert('Already played.')
         }
     }
 
@@ -26,7 +26,7 @@ const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
     return (
         <>
             <MuiButton onClick={handleClick} style={buttonStyle}>
-                {/*ici j'ai style={bigTextSize}. Cela permet d'appliquer le style défini dans css.js*/}
+                {/*ici j'ai style={bigTextSize}. Cela permet d'appliquer le style défini dans TicTacToe.Button.GithubButton.css.js*/}
                 {/*pour commenter des lignes dans du JSX, comme ici, j'utilise les accolades et les backslash avec étoiles.*/}
                 <div style={bigTextSize}> {symbol} </div>
             </MuiButton>
