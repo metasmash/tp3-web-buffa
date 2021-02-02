@@ -17,3 +17,8 @@ export const rootTicTacToe = {
     right: 0,
     margin: 'auto',
 }
+
+export const resetGameButton = {
+    position: 'absolute',
+    marginLeft: 200,
+}

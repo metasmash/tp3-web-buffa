@@ -4,7 +4,7 @@ import { Button as MuiButton } from '@material-ui/core'
 // j'importe mes objets javascript depuis CSS pour appliquer du style à mes composants.
 
 import { buttonStyle, bigTextSize } from './css'
-const Button = ({ playerTurn, parentCallback }) => {
+const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
     const [symbol, setSymbol] = useState('')
 
     const handleClick = () => {
@@ -19,11 +19,15 @@ const Button = ({ playerTurn, parentCallback }) => {
         parentCallback(symbol)
     }, [symbol])
 
+    useEffect(() => {
+        setSymbol('')
+    }, [toggleResetGame])
+
     return (
         <>
             <MuiButton onClick={handleClick} style={buttonStyle}>
                 {/*ici j'ai style={bigTextSize}. Cela permet d'appliquer le style défini dans css.js*/}
-                {/*pour commenter des lignes dans du JSX, comme ici, j'utilise les acolades et les backslash avec étoiles.*/}
+                {/*pour commenter des lignes dans du JSX, comme ici, j'utilise les accolades et les backslash avec étoiles.*/}
                 <div style={bigTextSize}> {symbol} </div>
             </MuiButton>
         </>
