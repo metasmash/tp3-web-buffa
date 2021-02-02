@@ -13,6 +13,7 @@ const TicTacToe = () => {
     return (
         <div style={rootTicTacToe}>
             <h1 style={{ margin: 'auto' }}>Tic Tac Toe</h1>
+            <h2>Player {playerTurn}, play omg!!!</h2>
             {initialState.map((x, key) => (
                 <Button
                     playerTurn={playerTurn}
