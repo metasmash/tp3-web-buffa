@@ -11,7 +11,7 @@ const Button = ({ playerTurn, parentCallback }) => {
         if (symbol === '') {
             setSymbol(playerTurn === 1 ? 'X' : 'O')
         } else {
-            console.log(symbol)
+            alert('Already played. Choose another button stupid shit!')
         }
     }
 

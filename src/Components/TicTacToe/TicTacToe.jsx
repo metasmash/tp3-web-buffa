@@ -7,7 +7,7 @@ const TicTacToe = () => {
     const [playerTurn, setPlayerTurn] = useState(1)
 
     const callback = (symbol) => {
-        setPlayerTurn(symbol === 'O' ? 1 : 2)
+        setPlayerTurn(symbol === 'X' ? 2 : 1)
     }
 
     return (
