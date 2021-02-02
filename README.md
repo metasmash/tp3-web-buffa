@@ -9,3 +9,5 @@
 `npm start`
 
 enjoy.
+
+Link of app: https://miage-tictactoe.tk
