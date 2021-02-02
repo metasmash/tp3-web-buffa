@@ -3,10 +3,13 @@ import { initialState } from './constants'
 import { Button } from '../../Components'
 import { Button as MuiButton } from '@material-ui/core'
 import { rootTicTacToe, resetGameButton, titleDescription } from './css'
+import PhubSound from '../../SoundFiles/pornhub-community-intro.mp3'
 
 const TicTacToe = () => {
     const [playerTurn, setPlayerTurn] = useState(1)
     const [toggleResetGame, setToggleResetGame] = useState(false)
+
+    const audio = new Audio(PhubSound)
 
     const callback = (symbol) => {
         setPlayerTurn(symbol === 'X' ? 2 : 1)
@@ -15,6 +18,7 @@ const TicTacToe = () => {
     const handleClick = () => {
         setToggleResetGame(!toggleResetGame)
         setPlayerTurn(1)
+        audio.play().then((r) => r)
     }
 
     return (
