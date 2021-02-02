@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { initialState } from './constants'
 import { Button } from '../../Components'
 import { Button as MuiButton } from '@material-ui/core'
-import { rootTicTacToe, resetGameButton } from './css'
+import { rootTicTacToe, resetGameButton, titleDescription } from './css'
 
 const TicTacToe = () => {
     const [playerTurn, setPlayerTurn] = useState(1)
@@ -19,11 +19,17 @@ const TicTacToe = () => {
 
     return (
         <div style={rootTicTacToe}>
-            <MuiButton onClick={handleClick} style={resetGameButton}>
+            <MuiButton
+                color={'primary'}
+                onClick={handleClick}
+                style={resetGameButton}
+            >
                 reset game
             </MuiButton>
-            <h1 style={{ margin: 'auto' }}>Tic Tac Toe</h1>
-            <h2>Player {playerTurn}, play omg!!!</h2>
+            <div style={titleDescription}>
+                <h1 style={{ margin: 'auto' }}>Tic Tac Toe</h1>
+                <h2>Player {playerTurn}, play omg!!!</h2>
+            </div>
             {initialState.map((x, key) => (
                 <Button
                     playerTurn={playerTurn}
