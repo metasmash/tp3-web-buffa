@@ -21,7 +21,9 @@ export default function ProjectSelector() {
                     aria-label="large outlined primary button group"
                 >
                     {_.map(projects, (x, i) => (
-                        <Button onClick={() => handleClick(i)}>{x}</Button>
+                        <Button key={i} onClick={() => handleClick(i)}>
+                            {x}
+                        </Button>
                     ))}
                 </ButtonGroup>
             </div>

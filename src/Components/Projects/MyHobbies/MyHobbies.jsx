@@ -51,8 +51,9 @@ export default function MyHobbies() {
                         component="nav"
                         className={classes.root}
                         aria-label="mailbox folders"
+                        key={i}
                     >
-                        <ListItem button divider>
+                        <ListItem divider>
                             <ListItemText primary={x} />
                             <Button
                                 style={{ backgroundColor: '#ff292980' }}

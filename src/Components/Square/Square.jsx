@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from 'react'
+import _ from 'lodash'
 import { Button as MuiButton } from '@material-ui/core'
 
 // j'importe mes objets javascript depuis CSS pour appliquer du style à mes composants.
 
 import { buttonStyle, bigTextSize } from './Square.css'
-const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
+const Button = ({
+    playerTurn,
+    parentCallback,
+    toggleResetGame,
+    index,
+    winner,
+}) => {
     const [symbol, setSymbol] = useState('')
 
     const handleClick = () => {
-        if (symbol === '') {
-            setSymbol(playerTurn === 1 ? 'X' : 'O')
+        if (_.isNull(winner)) {
+            if (symbol === '') {
+                setSymbol(playerTurn === 1 ? 'X' : 'O')
+            } else {
+                alert('Already played.')
+            }
         } else {
-            alert('Already played.')
+            alert(`You cannot play, ${winner} won!`)
         }
     }
 
     useEffect(() => {
-        parentCallback(symbol)
-    }, [symbol])
+        if (!!symbol) parentCallback(symbol, index)
+    }, [symbol, index])
 
     useEffect(() => {
         setSymbol('')
