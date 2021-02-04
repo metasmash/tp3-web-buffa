@@ -1,1 +1,1 @@
-export const projects = ['TicTacToe', 'Project two', 'Project three']
+export const projects = ['TicTacToe', 'Project two', 'UseRef App']

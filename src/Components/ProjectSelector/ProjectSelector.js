@@ -13,7 +13,7 @@ export default function ProjectSelector() {
     }
 
     return (
-        <>
+        <div style={{ marginBottom: '20px' }}>
             <div style={rootProjectSelector}>
                 <ButtonGroup
                     size="large"
@@ -28,6 +28,6 @@ export default function ProjectSelector() {
                 </ButtonGroup>
             </div>
             {renderProject(projectId)}
-        </>
+        </div>
     )
 }

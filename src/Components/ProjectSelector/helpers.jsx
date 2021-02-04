@@ -1,6 +1,6 @@
 import TicTacToe from '../Projects/TicTacToe/TicTacToe'
 import React from 'react'
-import { ChooseProject, MyHobbies } from '../index'
+import { ChooseProject, MyHobbies, UseRefApp } from '../index'
 
 export const renderProject = (index) => {
     switch (index) {
@@ -9,7 +9,7 @@ export const renderProject = (index) => {
         case 1:
             return <MyHobbies />
         case 2:
-            return <h1 style={{ textAlign: 'center' }}>Empty</h1>
+            return <UseRefApp />
         default:
             return <ChooseProject />
     }
