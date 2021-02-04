@@ -6,10 +6,10 @@ import { projects } from './constats'
 import { renderProject } from './helpers'
 
 export default function ProjectSelector() {
-    const [project, setProject] = useState(1)
+    const [projectId, setProjectId] = useState(-1)
 
     const handleClick = (i) => {
-        setProject(renderProject(i))
+        setProjectId(i)
     }
 
     return (
@@ -25,7 +25,7 @@ export default function ProjectSelector() {
                     ))}
                 </ButtonGroup>
             </div>
-            {project}
+            {renderProject(projectId)}
         </>
     )
 }
