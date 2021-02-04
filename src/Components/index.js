@@ -1,3 +1,6 @@
-export { default as Button } from './Button/Buttons'
-export { default as TicTacToe } from './TicTacToe/TicTacToe'
+export { default as Button } from './Button/Square'
+export { default as TicTacToe } from './Projects/TicTacToe/TicTacToe'
 export { default as GithubButton } from './GithubButton/GithubButton'
+export { default as ProjectSelector } from './ProjectSelector/ProjectSelector'
+export { default as ChooseProject } from './ChooseProject/ChooseProject'
+export { default as MyHobbies } from './Projects/MyHobbies/MyHobbies'

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { initialState } from './constants'
-import { Button } from '../../Components'
+import { Button } from '../../index'
 import { Button as MuiButton } from '@material-ui/core'
 import {
     rootTicTacToe,
     resetGameButton,
     titleDescription,
 } from './TicTacToe.css'
-import PhubSound from '../../SoundFiles/pornhub-community-intro.mp3'
+import PhubSound from '../../../SoundFiles/pornhub-community-intro.mp3'
 
 const TicTacToe = () => {
     const [playerTurn, setPlayerTurn] = useState(1)

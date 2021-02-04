@@ -1,11 +1,11 @@
 import React from 'react'
-import { GithubButton, TicTacToe } from './Components'
+import { GithubButton, ProjectSelector } from './Components'
 
 function App() {
     return (
         <div className="App">
             <GithubButton />
-            <TicTacToe />
+            <ProjectSelector Projects={'test'} />
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { Button as MuiButton } from '@material-ui/core'
 
 // j'importe mes objets javascript depuis CSS pour appliquer du style à mes composants.
 
-import { buttonStyle, bigTextSize } from './Button.css'
+import { buttonStyle, bigTextSize } from './Square.css'
 const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
     const [symbol, setSymbol] = useState('')
 
