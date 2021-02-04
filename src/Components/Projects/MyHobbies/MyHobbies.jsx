@@ -6,10 +6,13 @@ import { removeElementFromArray } from './helpers'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import { useLocalStorage } from '../../../Hooks'
 
 export default function MyHobbies() {
     const [inputField, setInputField] = useState('')
-    const [hobbies, setHobbies] = useState([])
+    // useLocalStorage is a custom hook. See the hook folder, i've added the source code!
+
+    const [hobbies, setHobbies] = useLocalStorage('hobbies', [])
 
     const addHobbies = () => {
         setHobbies([...hobbies, inputField])

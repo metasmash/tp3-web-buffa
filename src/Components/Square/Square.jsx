@@ -26,7 +26,7 @@ const Button = ({ playerTurn, parentCallback, toggleResetGame }) => {
     return (
         <>
             <MuiButton onClick={handleClick} style={buttonStyle}>
-                {/*ici j'ai style={bigTextSize}. Cela permet d'appliquer le style défini dans TicTacToe.Button.GithubButton.css.js*/}
+                {/*ici j'ai style={bigTextSize}. Cela permet d'appliquer le style défini dans TicTacToe.Square.GithubButton.css.js*/}
                 {/*pour commenter des lignes dans du JSX, comme ici, j'utilise les accolades et les backslash avec étoiles.*/}
                 <div style={bigTextSize}> {symbol} </div>
             </MuiButton>

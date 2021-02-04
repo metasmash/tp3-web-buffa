@@ -1,4 +1,4 @@
-export { default as Button } from './Button/Square'
+export { default as Button } from './Square/Square'
 export { default as TicTacToe } from './Projects/TicTacToe/TicTacToe'
 export { default as GithubButton } from './GithubButton/GithubButton'
 export { default as ProjectSelector } from './ProjectSelector/ProjectSelector'
