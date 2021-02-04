@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import _ from 'lodash'
-import { rootMyHobbies, useStyles } from './MyHobbies.css'
+import { rootMyHobbies } from './MyHobbies.css'
 import { Input, Button } from '@material-ui/core'
+import { DataGrid } from '@material-ui/data-grid'
 import { removeElementFromArray } from './helpers'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
 import { useLocalStorage } from '../../../Hooks'
 
 export default function MyHobbies() {
@@ -26,12 +24,11 @@ export default function MyHobbies() {
     }
 
     const deleteHobbies = (i) => setHobbies(removeElementFromArray(hobbies, i))
+    const deleteAllHobbies = () => setHobbies([])
 
     const renderNumberOfHobbies = (
         <div>{`Nombre de hobbies: ${_.size(hobbies)}`}</div>
     )
-
-    const classes = useStyles()
 
     return (
         <div style={rootMyHobbies}>
@@ -44,26 +41,45 @@ export default function MyHobbies() {
                     onKeyPress={handleKeyPress}
                 />
                 <Button onClick={addHobbies}>Add</Button>
+                <Button
+                    style={{ backgroundColor: '#ff292980' }}
+                    onClick={deleteAllHobbies}
+                >
+                    delete
+                </Button>
             </div>
-            <div>
-                {_.map(hobbies, (x, i) => (
-                    <List
-                        component="nav"
-                        className={classes.root}
-                        aria-label="mailbox folders"
-                        key={i}
-                    >
-                        <ListItem divider>
-                            <ListItemText primary={x} />
-                            <Button
-                                style={{ backgroundColor: '#ff292980' }}
-                                onClick={() => deleteHobbies(i)}
-                            >
-                                delete
-                            </Button>
-                        </ListItem>
-                    </List>
-                ))}
+            <div
+                style={{
+                    height: 400,
+                    maxWidth: '620px',
+                    width: '100%',
+                    margin: 'auto',
+                }}
+            >
+                <DataGrid
+                    columns={[
+                        { field: 'hobbies', headerName: 'Hobbies', width: 400 },
+                        {
+                            field: 'id',
+                            headerName: 'Delete',
+                            width: 200,
+                            renderCell: (params) => (
+                                <Button
+                                    style={{ backgroundColor: '#ff292980' }}
+                                    onClick={() => deleteHobbies(params.value)}
+                                >
+                                    delete
+                                </Button>
+                            ),
+                        },
+                    ]}
+                    rows={_.map(hobbies, (x, i) => ({
+                        id: i,
+                        hobbies: x,
+                        delete: i,
+                    }))}
+                    pageSize={5}
+                />
             </div>
         </div>
     )
