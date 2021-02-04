@@ -45,7 +45,7 @@ export default function MyHobbies() {
                     style={{ backgroundColor: '#ff292980' }}
                     onClick={deleteAllHobbies}
                 >
-                    delete
+                    delete all hobbies
                 </Button>
             </div>
             <div
