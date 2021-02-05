@@ -8,6 +8,7 @@ import {
     titleDescription,
 } from './TicTacToe.css'
 import PhubSound from '../../../SoundFiles/pornhub-community-intro.mp3'
+import HurtSound from '../../../SoundFiles/classic_hurt.mp3'
 import { addElementFromArray, calculateWinner } from './helpers'
 
 const TicTacToe = () => {
@@ -16,10 +17,13 @@ const TicTacToe = () => {
     const [playerMoves, setPlayerMoves] = useState(initialState)
     const [winner, setWinner] = useState(null)
 
-    const audio = new Audio(PhubSound)
+    // setup audio
+    const audio = { phub: new Audio(PhubSound), hurt: new Audio(HurtSound) }
 
-    audio.volume = 0.4
+    audio.phub.volume = 0.4
+    audio.hurt.volume = 0.4
 
+    // setup callback that will be passed inside child component
     const callback = (symbol, index) => {
         setPlayerTurn(symbol === 'X' ? 2 : 1)
         setPlayerMoves(addElementFromArray(playerMoves, index, playerTurn))
@@ -30,7 +34,7 @@ const TicTacToe = () => {
         setWinner(null)
         setPlayerMoves(initialState)
         setPlayerTurn(1)
-        await audio.play()
+        await audio.phub.play()
     }
 
     useEffect(() => {
@@ -38,7 +42,14 @@ const TicTacToe = () => {
     }, [playerMoves])
 
     useEffect(() => {
-        if (!!winner) alert(`Winner is: ${winner}`)
+        const checkup = async () => {
+            if (!!winner) {
+                await audio.hurt.play()
+                alert(`Winner is: ${winner}`)
+            }
+        }
+
+        checkup()
     }, [winner])
 
     return (
