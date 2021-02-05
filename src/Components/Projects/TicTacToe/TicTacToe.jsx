@@ -9,6 +9,7 @@ import {
 } from './TicTacToe.css'
 import PhubSound from '../../../SoundFiles/pornhub-community-intro.mp3'
 import HurtSound from '../../../SoundFiles/classic_hurt.mp3'
+import ErrorSound from '../../../SoundFiles/error.mp3'
 import { addElementFromArray, calculateWinner } from './helpers'
 
 const TicTacToe = () => {
@@ -18,10 +19,18 @@ const TicTacToe = () => {
     const [winner, setWinner] = useState(null)
 
     // setup audio
-    const audio = { phub: new Audio(PhubSound), hurt: new Audio(HurtSound) }
+    const audio = {
+        phub: new Audio(PhubSound),
+        hurt: new Audio(HurtSound),
+        error: new Audio(ErrorSound),
+    }
 
     audio.phub.volume = 0.4
     audio.hurt.volume = 0.4
+
+    const errorSoundCallback = async () => {
+        await audio.error.play()
+    }
 
     // setup callback that will be passed inside child component
     const callback = (symbol, index) => {
@@ -71,6 +80,7 @@ const TicTacToe = () => {
                     parentCallback={callback}
                     toggleResetGame={toggleResetGame}
                     index={i}
+                    errorSoundCallback={errorSoundCallback}
                     key={i}
                     winner={winner}
                 />

@@ -11,10 +11,11 @@ const Button = ({
     toggleResetGame,
     index,
     winner,
+    errorSoundCallback,
 }) => {
     const [symbol, setSymbol] = useState('')
 
-    const handleClick = () => {
+    const handleClick = async () => {
         if (_.isNull(winner)) {
             if (symbol === '') {
                 setSymbol(playerTurn === 1 ? 'X' : 'O')
@@ -22,6 +23,7 @@ const Button = ({
                 alert('Already played.')
             }
         } else {
+            await errorSoundCallback()
             alert(`You cannot play, ${winner} won!`)
         }
     }
